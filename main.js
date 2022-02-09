@@ -1,6 +1,8 @@
 x = 0;
 y = 0;
 
+content="";
+
 screen_width = "";
 screen_height = "";
 
@@ -15,12 +17,12 @@ function preload()
   to_number = Number(content);
   if(Number.isInteger(to_number))
   {
-    document.getElementById("status") = "Started drawing apples";
+    document.getElementById("status").innerHTML = "Started drawing apples";
     draw_apple = "set";
   }
   else 
   {
-    document.getElementById("status") = "The speech has not recognized a number";
+    document.getElementById("status").innerHTML = "The speech has not recognized a number";
   }
 }
 
@@ -43,12 +45,8 @@ recognition.onresult = function(event) {
 function setup() {
  screen_width = window.innerWidth;
  screen_height = window.innerHeight;
+ canvas = createCanvas(750,750);
 }
-
-function createCanvas() {
-  canvas = createCanvas(0,150);
-}
-
 
 function draw() {
   if(draw_apple == "set")
